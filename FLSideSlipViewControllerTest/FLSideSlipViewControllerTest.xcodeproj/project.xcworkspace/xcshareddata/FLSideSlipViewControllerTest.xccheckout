@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>47939347-8679-4EBE-BA36-3279C3D16536</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FLSideSlipViewControllerTest</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>38C9CD954494E0762920AD49B72CD0A211EB41DC</key>
+		<string>https://github.com/fengling2300/FLSideSlipViewController.git</string>
+		<key>5D975BCF7FE8BBB1A227CB4081379978751E11ED</key>
+		<string>https://github.com/fengling2300/FLAdview.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>FLSideSlipViewControllerTest/FLSideSlipViewControllerTest.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>38C9CD954494E0762920AD49B72CD0A211EB41DC</key>
+		<string>../../..</string>
+		<key>5D975BCF7FE8BBB1A227CB4081379978751E11ED</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/fengling2300/FLSideSlipViewController.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>38C9CD954494E0762920AD49B72CD0A211EB41DC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>5D975BCF7FE8BBB1A227CB4081379978751E11ED</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>38C9CD954494E0762920AD49B72CD0A211EB41DC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FLSideSlipViewController</string>
+		</dict>
+	</array>
+</dict>
+</plist>

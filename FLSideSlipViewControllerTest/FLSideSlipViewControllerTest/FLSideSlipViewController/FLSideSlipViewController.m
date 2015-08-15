@@ -39,7 +39,7 @@ static const CGFloat min_Alpha = 0.2f;/**< 背景最小的透明度*/
 {
     [super viewDidLoad];
     g_backGroundImage = [[UIImageView alloc]initWithFrame:self.view.bounds];
-    [g_backGroundImage setImage:[UIImage imageNamed:@"bbb.jpg"]];
+    [g_backGroundImage setImage:[UIImage imageNamed:@"backGroundImage"]];
     [g_backGroundImage setAutoresizingMask:UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight];
     g_backGroundImage.alpha = min_Alpha;
     [self.view insertSubview:g_backGroundImage atIndex:0];
