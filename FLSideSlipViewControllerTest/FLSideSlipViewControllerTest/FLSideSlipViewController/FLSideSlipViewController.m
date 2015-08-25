@@ -8,7 +8,7 @@
 
 #import "FLSideSlipViewController.h"
 
-@interface FLSideSlipViewController ()
+@interface FLSideSlipViewController ()<UIGestureRecognizerDelegate>
 
 @end
 
@@ -47,6 +47,17 @@ static const CGFloat min_Alpha = 0.2f;/**< 背景最小的透明度*/
     [g_overView setBackgroundColor:[UIColor clearColor]];
 }
 
+#pragma mark - Custom Delegate
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer {
+    if (_canSlideInPush) {
+        return YES;
+    }
+    if (_rootViewController.childViewControllers.count == 1 && !_canSlideInPush) {
+        return YES;
+    }
+    return NO;
+}
+
 #pragma mark - event response
 /**
  *  单击返回主界面
@@ -62,6 +73,8 @@ static const CGFloat min_Alpha = 0.2f;/**< 背景最小的透明度*/
     if (gesture.state == UIGestureRecognizerStateBegan) {
         [self showShadow:YES];
         _rootViewController.view.layer.shouldRasterize = YES;//抗锯齿
+        [_rootViewController.view.layer setRasterizationScale:[[UIScreen mainScreen] scale]];
+        [_rootViewController.view setNeedsDisplay];
         g_currentTranslateX = _rootViewController.view.frame.origin.x;
         if (g_menuFlags.showingRightView) {//解决右边返回的时候动画跳变问题
             g_currentTranslateX = -_leftDistance;
@@ -240,8 +253,7 @@ static const CGFloat min_Alpha = 0.2f;/**< 背景最小的透明度*/
             [UIView commitAnimations];
             [_rootViewController.view addSubview:g_overView];
             return;
-        }
-        else{
+        } else {
             _rootViewController.view.layer.shouldRasterize = NO;//取消抗锯齿
             CGAffineTransform oriT = CGAffineTransformIdentity;
             CGAffineTransform transRight = CGAffineTransformMakeTranslation(-_leftDistance, 0);
@@ -312,6 +324,7 @@ static const CGFloat min_Alpha = 0.2f;/**< 背景最小的透明度*/
             CATransform3D transform = [self getCATransform3D];
             _rootViewController.view.layer.transform = transform;
             _rootViewController.view.layer.shouldRasterize = YES;//抗锯齿
+            [_rootViewController.view.layer setRasterizationScale:[[UIScreen mainScreen] scale]];
             break;
         }
         default: {
@@ -359,6 +372,7 @@ static const CGFloat min_Alpha = 0.2f;/**< 背景最小的透明度*/
             CATransform3D transform = [self getCATransform3D];
             _rootViewController.view.layer.transform = transform;
             _rootViewController.view.layer.shouldRasterize = YES;//抗锯齿
+            [_rootViewController.view.layer setRasterizationScale:[[UIScreen mainScreen] scale]];
             break;
         }
         default: {
@@ -677,6 +691,7 @@ static const CGFloat min_Alpha = 0.2f;/**< 背景最小的透明度*/
         [self.view addSubview:view];
         
         UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
+        pan.delegate = self;
         pan.delegate = (id<UIGestureRecognizerDelegate>)self;
         [view addGestureRecognizer:pan];
         

@@ -40,6 +40,7 @@ typedef NS_ENUM(NSUInteger, AnimationType) {
 @property (nonatomic, retain) UIViewController *rightViewController;
 @property (nonatomic, assign) CGFloat          leftDistance;           /**< 左滑距离*/
 @property (nonatomic, assign) CGFloat          scaleSize;              /**< 缩放大小 0-1,动画类型为AnimationTransition时该属性无效*/
+@property (nonatomic, assign) BOOL             canSlideInPush;          /**< push后的controller中能否滑出菜单*/
 @property (nonatomic, assign) AnimationType    animationType;           /**< 动画类型*/
 
 - (id)initWithRootViewController:(UIViewController *)viewController;
