@@ -78,7 +78,7 @@
         AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
         //在主界面上进行跳转
         [delegate.menuViewController pushToNewViewController:controller1 animation:NO];
-        [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
+        [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];//取消cell的选中效果
     }else if(indexPath.row == 1){
         UIViewController *controller2 = [[UIViewController alloc]init];
         [controller2.view setBackgroundColor:[UIColor blueColor]];
