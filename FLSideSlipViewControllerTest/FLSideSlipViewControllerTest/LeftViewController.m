@@ -76,12 +76,15 @@
         [controller1.view setBackgroundColor:[UIColor redColor]];
         UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:controller1];
         AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-        [delegate.menuViewController setNewRootViewController:nav animation:YES];
+        //在主界面上进行跳转
+        [delegate.menuViewController pushToNewViewController:controller1 animation:NO];
+        [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
     }else if(indexPath.row == 1){
         UIViewController *controller2 = [[UIViewController alloc]init];
         [controller2.view setBackgroundColor:[UIColor blueColor]];
         UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:controller2];
         AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        //更换主界面
         [delegate.menuViewController setNewRootViewController:nav animation:YES];
     }else{
         UIViewController *controller3 = [[UIViewController alloc]init];

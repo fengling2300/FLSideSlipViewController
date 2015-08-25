@@ -464,6 +464,17 @@ static const CGFloat min_Alpha = 0.2f;/**< 背景最小的透明度*/
     }
 }
 
+/**
+ *  跳转界面
+ *
+ *  @param viewController 要跳转的界面
+ *  @param animation      是否打开动画
+ */
+- (void)pushToNewViewController:(UIViewController *)viewController animation:(BOOL)animation {
+    [self showRootViewController:YES];
+    [(UINavigationController *)_rootViewController pushViewController:viewController animated:animation];
+}
+
 #pragma mark - private method
 /**
  *  获取view的动画效果(有倾斜)

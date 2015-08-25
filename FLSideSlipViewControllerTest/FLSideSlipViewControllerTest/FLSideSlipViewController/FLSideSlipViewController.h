@@ -45,6 +45,7 @@ typedef NS_ENUM(NSUInteger, AnimationType) {
 
 - (id)initWithRootViewController:(UIViewController *)viewController;
 - (void)setNewRootViewController:(UIViewController *)viewController animation:(BOOL)animation;
+- (void)pushToNewViewController:(UIViewController *)viewController animation:(BOOL)animation;
 /**
  *  左上角按钮点击事件
  */
