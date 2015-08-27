@@ -2,9 +2,10 @@
 
 使用说明:
 1、将项目中的FLSideSlipViewController引入到自己的工程
-2在didFinishLaunchingWithOptions:方法中初始化RootViewController:
 
-		self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+2、在didFinishLaunchingWithOptions:方法中初始化FLSideSlipViewController
+
+	self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window setBackgroundColor:[UIColor whiteColor]];
     ViewController *controller = [[ViewController alloc]init];
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:controller];
@@ -18,7 +19,7 @@
     _menuViewController.leftViewController = leftController;
     self.window.rootViewController = _menuViewController;
     [self.window makeKeyAndVisible];
-    
+     
 注:如果没有设置rightViewController或leftViewController,则无法向对应的方向滑动
 
 3、如果要替换底下的背景图,请更换backGroundImage图片,或在源码中自行修改。
