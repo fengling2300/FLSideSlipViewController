@@ -23,9 +23,9 @@
     ViewController *controller = [[ViewController alloc]init];
     UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:controller];
     _menuViewController = [[FLSideSlipViewController alloc]initWithRootViewController:nav];
-    _menuViewController.leftDistance = 160;//设置滑动距离
-    _menuViewController.scaleSize = 0.85;//设置缩小比例
-    _menuViewController.animationType = AnimationTransitionAndScaleAndIncline;//设置动画类型
+//    _menuViewController.leftDistance = 160;//设置滑动距离
+//    _menuViewController.scaleSize = 0.85;//设置缩小比例
+//    _menuViewController.animationType = AnimationTransitionAndScale;//设置动画类型
     _menuViewController.canSlideInPush = NO;
     
     LeftViewController *leftController = [[LeftViewController alloc] init];

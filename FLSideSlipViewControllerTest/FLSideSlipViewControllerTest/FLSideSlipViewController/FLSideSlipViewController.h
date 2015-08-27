@@ -45,6 +45,12 @@ typedef NS_ENUM(NSUInteger, AnimationType) {
 
 - (id)initWithRootViewController:(UIViewController *)viewController;
 - (void)setNewRootViewController:(UIViewController *)viewController animation:(BOOL)animation;
+/**
+ *  侧边栏菜单点击后在主界面跳转界面
+ *
+ *  @param viewController 要跳转的界面
+ *  @param animation      是否打开动画
+ */
 - (void)pushToNewViewController:(UIViewController *)viewController animation:(BOOL)animation;
 /**
  *  左上角按钮点击事件

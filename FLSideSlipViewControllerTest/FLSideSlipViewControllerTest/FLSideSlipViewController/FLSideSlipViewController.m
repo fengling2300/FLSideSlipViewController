@@ -13,6 +13,8 @@
 @end
 
 static const CGFloat min_Alpha = 0.2f;/**< 背景最小的透明度*/
+static const CGFloat defaultLeftDistance = 160.0f;/**< 默认离左边的距离*/
+static const CGFloat defaultScale = 0.85;/**< 默认缩小范围*/
 
 @implementation FLSideSlipViewController{
     UIImageView *g_backGroundImage;
@@ -23,7 +25,9 @@ static const CGFloat min_Alpha = 0.2f;/**< 背景最小的透明度*/
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        _leftDistance = defaultLeftDistance;
+        _scaleSize = defaultScale;
+        _animationType = AnimationTransitionAndScaleAndIncline;
     }
     return self;
 }
@@ -72,8 +76,6 @@ static const CGFloat min_Alpha = 0.2f;/**< 背景最小的透明度*/
 -(void)pan:(UIPanGestureRecognizer *)gesture{
     if (gesture.state == UIGestureRecognizerStateBegan) {
         [self showShadow:YES];
-        _rootViewController.view.layer.shouldRasterize = YES;//抗锯齿
-        [_rootViewController.view.layer setRasterizationScale:[[UIScreen mainScreen] scale]];
         [_rootViewController.view setNeedsDisplay];
         g_currentTranslateX = _rootViewController.view.frame.origin.x;
         if (g_menuFlags.showingRightView) {//解决右边返回的时候动画跳变问题
@@ -172,6 +174,8 @@ static const CGFloat min_Alpha = 0.2f;/**< 背景最小的透明度*/
                 CGFloat angle =  30.0f * M_PI / 180.0f * (transX / self.view.frame.size.width);//旋转角度
                 transform = CATransform3DRotate(transform, angle , 0.0f, 1.0f, 0.0f);//Y轴方向旋转angle角度
                 _rootViewController.view.layer.transform = transform;
+                _rootViewController.view.layer.shouldRasterize = YES;//抗锯齿
+                [_rootViewController.view.layer setRasterizationScale:[[UIScreen mainScreen] scale]];
                 break;
             }
             default: {
@@ -465,7 +469,7 @@ static const CGFloat min_Alpha = 0.2f;/**< 背景最小的透明度*/
 }
 
 /**
- *  跳转界面
+ *  侧边栏菜单点击后在主界面跳转界面
  *
  *  @param viewController 要跳转的界面
  *  @param animation      是否打开动画
