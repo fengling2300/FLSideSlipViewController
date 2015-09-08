@@ -187,7 +187,18 @@ static const CGFloat defaultScale = 0.85;/**< 默认缩小范围*/
     }else if(gesture.state == UIGestureRecognizerStateEnded || gesture.state == UIGestureRecognizerStateCancelled){
         CGPoint velocity = [gesture velocityInView:self.view];
         if (velocity.x > 0 && !g_menuFlags.showingRightView && g_menuFlags.canShowLeft) {
-            g_menuFlags.showingLeftView = YES;
+            if (!g_menuFlags.showingLeftView) {
+                g_menuFlags.showingLeftView = YES;
+                CGRect leftFrame = self.view.bounds;
+                CGAffineTransform oriT = CGAffineTransformIdentity;
+                _leftViewController.view.transform = oriT;//先将leftviewcontroller的view置回原来的大小，否则再缩小的时候位置会改变
+                _leftViewController.view.frame = leftFrame;
+                [self.view insertSubview:_leftViewController.view atIndex:1];
+                CGAffineTransform transRight = CGAffineTransformMakeTranslation(-_leftDistance, 0);
+                CGAffineTransform transScale = CGAffineTransformMakeScale(_scaleSize, _scaleSize);
+                CGAffineTransform transConcat = CGAffineTransformConcat(transRight, transScale);
+                _leftViewController.view.transform = transConcat;
+            }
             g_menuFlags.showingRightView = NO;
             [g_tap setEnabled:YES];
             [UIView beginAnimations:Nil context:nil];
