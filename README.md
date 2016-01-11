@@ -31,3 +31,5 @@
 	(2)、平移加缩放动画
  
 	(3)、平移加缩放加倾斜动画
+
+![image](https://github.com/fengling2300/FLSideSlipViewController/blob/master/image.gif)
